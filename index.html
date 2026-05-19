@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Immortality</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Space+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styleIndex.css">
+    <link rel="stylesheet" href="textAnimation.css">
+    <style>
+        
+        body,
+        html {
+            overflow: hidden;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <audio id="linkSound" preload="auto">
+        <source src="sound/button-sound1.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div id="tsparticles"></div>
+
+    <div class="hero-full">
+        <h1 class="glitch" data-text="immortalità digitale">immortalità digitale</h1>
+        <p class="subtitle">Tesina di Fedorenko Matvii</p>
+        <a href="data.html" class="btn-primary" id="myLink">Iniziare</a>
+    </div>
+
+    <script>
+        const link = document.getElementById('myLink');
+        const sound = document.getElementById('linkSound');
+
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            sound.currentTime = 0;
+            sound.play().then(() => {
+                setTimeout(() => {
+                    window.location.href = link.href;
+                }, 200);
+            }).catch(err => console.error(err));
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="scriptIndex.js"></script>
+</body>
+
+</html>

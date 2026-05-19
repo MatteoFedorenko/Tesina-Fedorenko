@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Immortality | Info</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Space+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styleData.css">
+</head>
+
+<body class="data-page">
+
+    <!-- Sounds for buttons -->
+        <!-- Sounds for right side buttons -->
+    <audio id="linkSound" preload="auto">
+        <source src="sound/button-sound4.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+        <!-- Sounds for turn back and avanti buttons -->
+    <audio id="linkSound2" preload="auto">
+        <source src="sound/button-sound2.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div id="tsparticles"></div>
+    <a href="index.html" class="back-link-fixed" id="myLink">← Back</a>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <nav class="side-nav">
+        <a href="#what-is" class="nav-item">
+            <span class="nav-label">Cos'è l'immortalità digitale?</span>
+            <i class="fa-solid fa-microchip"></i>
+        </a>
+        <a href="#how-it-works" class="nav-item">
+            <span class="nav-label">Come funziona?</span>
+            <i class="fa-solid fa-gears"></i>
+        </a>
+        <a href="#experiments" class="nav-item">
+            <span class="nav-label">Esperimenti condotti</span>
+            <i class="fa-solid fa-dna"></i>
+        </a>
+        <a href="#robotics" class="nav-item">
+            <span class="nav-label">Robotizzazione delle persone</span>
+            <i class="fa-solid fa-robot"></i>
+        </a>
+        <a href="#sandboxes" class="nav-item">
+            <span class="nav-label">Giochi sandbox</span>
+            <i class="fa-solid fa-gamepad"></i>
+        </a>
+        <a href="#risks" class="nav-item">
+            <span class="nav-label">Rischi e realtà</span>
+            <i class="fa-solid fa-triangle-exclamation"></i>
+        </a>
+    </nav>
+
+    <script>
+        const originalSound = document.getElementById('linkSound');
+
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+
+                const soundClone = originalSound.cloneNode(true);
+                soundClone.play().catch(err => console.error(err));
+
+                soundClone.addEventListener('ended', () => {
+                    window.location.href = link.href;
+                });
+
+                setTimeout(() => {
+                    window.location.href = link.href;
+                }, 300);
+            });
+        });
+    </script>
+    <script>
+        const link = document.getElementById('myLink');
+        const sound = document.getElementById('linkSound2');
+
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            sound.currentTime = 0;
+            sound.play().then(() => {
+                setTimeout(() => {
+                    window.location.href = link.href;
+                }, 200);
+            }).catch(err => console.error(err));
+        });
+    </script>
+
+    <section class="article-section fade-in" id="what-is">
+        <div class="content-wrapper">
+            <div class="text-side">
+                <h2 class="accent-title">Cos'è l'immortalità digitale?</h2>
+                <p>L'immortalità digitale è il trasferimento della personalità dal cervello a un computer. Immaginate i vostri pensieri, i
+                vostri ricordi e la vostra personalità come codice software. L'idea è di creare un "backup" completo della vostra
+                coscienza nel cloud. Convertendo le connessioni neurali in dati, una persona può essere eseguita su un server come
+                un'emulazione. In definitiva, la personalità diventa puro software, non influenzata dall'invecchiamento cellulare e in
+                grado di essere conservata indefinitamente.</p>
+            </div>
+            <div class="image-side neon-border">
+                <img src="img/digitalBrain.jpg"
+                    alt="Mind Concept">
+            </div>
+        </div>
+    </section>
+
+    <hr class="neon-divider">
+
+    <!-- Секция 2: Информатика -->
+    <section class="article-section fade-in mirror" id="how-it-works">
+        <div class="content-wrapper">
+            <div class="image-side floating">
+                <img src="img/DvaChela.jpg"
+                    alt="Circuits">
+            </div>
+            <div class="text-side">
+                <h2 class="accent-title">Come funziona?</h2>
+                <p>Innanzitutto, viene creata una copia. Gli scienziati studiano la struttura delle connessioni cerebrali e la registrano
+                in un file di grandi dimensioni. È come trasferire foto e contatti da un vecchio telefono a una chiavetta USB. Poi
+                arriva il lancio. Questo file viene caricato in un potente computer in grado di "dare vita" ai dati. Non è più solo una
+                cartella di file, ma un programma in esecuzione. Inizia a pensare e a rispondere a domande proprio come farebbe un
+                essere umano. Infine, viene aggiunto uno schermo. Per poter comunicare con questa copia, essa viene connessa a Internet
+                e a un computer. In definitiva, la persona continua a vivere all'interno del sistema, solo che ora, al posto di ossa e
+                muscoli, ha microchip e codice.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="neon-divider">
+    
+    <section class="article-section fade-in" id="experiments">
+        <div class="content-wrapper">
+            <div class="text-side">
+                <h2 class="accent-title">Esperimenti condotti</h2>
+                <p>
+                    Un esempio concreto è il progetto OpenWorm.
+                    Gli scienziati hanno preso un verme con soli 302 neuroni e ne hanno digitalizzato completamente il cervello. Questo
+                    "codice" è stato caricato in un robot su ruote. Senza alcun comando, il robot ha iniziato a comportarsi come un verme
+                    vivente: evitando gli ostacoli e cercando cibo. Questo dimostra che la coscienza (anche quella primitiva) è semplicemente un algoritmo che può essere eseguito
+                    dall'hardware.
+                </p>
+            </div>
+            <div class="image-side">
+                <img src="img/NeuronActivation2.jpg"
+                    alt="Laboratory">
+            </div>
+        </div>
+    </section>
+
+    <hr class="neon-divider">
+
+    <!-- Секция 5: Роботы -->
+    <section class="article-section fade-in mirror" id="robotics">
+        <div class="content-wrapper">
+            <div class="text-side">
+                <h2 class="accent-title">Robotizzazione delle persone</h2>
+                <p>La robotizzazione è come cambiare la scocca di uno smartphone. Una volta che la coscienza è digitalizzata in codice
+                funzionante, può essere caricata non sul cloud, ma su un processore all'interno di un corpo metallico. Immaginate che,
+                dopo la morte, la coscienza venga trasferita in un corpo di ferro dove si possa trascorrere l'eternità, poiché un corpo
+                robotico è immune all'invecchiamento e alle malattie, e tutti gli arti e le parti sono sostituibili. Ma c'è un problema:
+                la coscienza umana viene copiata nel robot, mentre l'originale muore.</p>
+            </div>
+            <div class="image-side glitch-img">
+                <img src="img/facetoface.png"
+                    alt="Robot">
+            </div>
+        </div>
+    </section>
+
+    <hr class="neon-divider">
+
+    <!-- Секция 6: Песочницы -->
+    <section class="article-section fade-in" id="sandboxes">
+        <div class="content-wrapper">
+            <div class="image-side glass-effect">
+                <img src="img/minecraft.jpg"
+                    alt="Digital World">
+            </div>
+            <div class="text-side">
+                <h2 class="accent-title">Giochi sandbox</h2>
+                <p>Oltre alla robotica, è anche possibile inserire la coscienza in una sorta di gioco. La tua coscienza diventa il "dio" di
+                una simulazione, dove puoi creare interi universi con trame diverse. Non ci sono limiti fisici e sei tu a dettare tutte
+                le regole. Questo è un terreno di prova ideale per la scienza: gli scienziati possono simulare migliaia di scenari e prevederne gli
+                esiti con assoluta precisione. Ciò trasforma l'immortalità digitale da semplice archivio di memoria in uno strumento
+                infinito per la creatività e l'analisi della realtà.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="neon-divider">
+    
+    <section class="article-section fade-in mirror" id="risks">
+        <div class="content-wrapper">
+            <div class="text-side">
+                <h2 class="accent-title">Rischi e realtà</h2>
+                <p>
+                    In teoria è tutto perfetto, ma la realtà è ben diversa. Il rischio principale è la sicurezza delle informazioni. Se la
+                    tua coscienza è un software, puoi essere hackerato, infettato da un virus o copiato senza il tuo consenso. La morte
+                    digitale può sopraggiungere non per vecchiaia, ma per una semplice interruzione di corrente o la cancellazione di un
+                    file da parte di un amministratore di server. Inoltre, c'è la questione dell'autenticità. La copia nel cloud sarà
+                    davvero "te" o è semplicemente un'imitazione di alta qualità che si crede viva?
+                </p>
+                <p style="margin-top: 20px; font-style: italic; opacity: 0.6;">
+                    Finché non risolveremo questo paradosso
+                    filosofico, l'immortalità digitale rimane una zona ad alto rischio, dove il confine tra vita eterna e archiviazione
+                    eterna dei dati è troppo labile.
+                </p>
+            </div>
+            <div class="image-side">
+                <img src="img/skull.png"
+                    alt="System Security">
+            </div>
+        </div>
+    </section>
+
+    <a href="fine.html" class="btn-primary sec" id="myLink">Avanti</a>
+    
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="scriptData.js"></script>
+</body>
+
+</html>
